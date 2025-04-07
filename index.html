@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ייעוץ טכנולוגי ממוקד לעולם שמתחדש כל יום | [שמך כאן]</title> 
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+        --background: #1a1a1a;
+        --text-primary: #b2d272; /* ירוק בהיר */
+        --text-secondary: #c9aed3; /* סגול בהיר */
+        --accent: #80b34f; /* ירוק כהה יותר */
+        --dark-accent: #424242; /* אפור כהה */
+        --light-bg: #2a2a2a; /* רקע בהיר יותר */
+        --white: #f0f0f0;
+        --text-white-main: #f5f5f5;
+        --text-white-subtle: #cccccc;
+    }
+
+    body {
+      font-family: 'Heebo', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    @keyframes blob {
+      0% { transform: translate(0px, 0px) scale(1); }
+      33% { transform: translate(30px, -50px) scale(1.1); }
+      66% { transform: translate(-20px, 20px) scale(0.9); }
+      100% { transform: translate(0px, 0px) scale(1); }
+    }
+    .animate-blob { animation: blob 7s infinite; }
+    .animation-delay-2000 { animation-delay: 2s; }
+    .animation-delay-4000 { animation-delay: 4s; }
+
+    @keyframes slide-up {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-slide-up { animation: slide-up 0.7s ease-out forwards; }
+
+    .transition-all {
+      transition-property: all;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 300ms;
+    }
+
+    .text-gradient-primary {
+      background-image: linear-gradient(to right, var(--text-primary), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+     .text-gradient-secondary {
+      background-image: linear-gradient(to right, var(--text-secondary), #a98eb3);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .text-gradient-white {
+       background-image: linear-gradient(to right, var(--text-white-main), var(--text-white-subtle));
+       -webkit-background-clip: text;
+       background-clip: text;
+       color: transparent;
+    }
+
+    /* Style for image placeholders/actual image */
+    .profile-image-placeholder {
+        aspect-ratio: 1 / 1; /* Square aspect ratio */
+        background-color: var(--dark-accent);
+        border-radius: 50%; /* Make it round */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-white-subtle);
+        border: 3px solid var(--accent);
+        overflow: hidden; /* Clip image to circle */
+    }
+    .profile-image-placeholder img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Improve visibility of back-to-top on smaller screens */
+    #back-to-top {
+        bottom: 1.5rem;
+        left: 1.5rem; /* Changed from right to left for RTL consistency */
+    }
+
+    @media (max-width: 640px) { /* sm breakpoint */
+        #back-to-top {
+            bottom: 1rem;
+            left: 1rem;
+            width: 2.5rem; /* 40px */
+            height: 2.5rem; /* 40px */
+        }
+        #back-to-top i {
+            font-size: 0.875rem; /* text-sm */
+        }
+    }
+
+     /* Styling for testimonial quotes */
+    .testimonial-quote::before {
+        content: '"';
+        font-size: 3rem;
+        color: var(--accent);
+        opacity: 0.5;
+        position: absolute;
+        top: -0.5rem;
+        right: -0.5rem;
+        line-height: 1;
+    }
+    .testimonial-quote {
+        position: relative;
+        padding-right: 1.5rem;
+    }
+
+  </style>
+</head>
+<body class="bg-gradient-to-b from-[var(--background)] to-[#222] text-[var(--text-white-main)] transition-colors duration-300">
+
+  <!-- Hero Section -->
+  <section class="relative pt-20 pb-24 md:pt-28 md:pb-32 overflow-hidden">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-6xl max-h-6xl opacity-75 md:opacity-100">
+      <div class="absolute top-0 right-0 w-72 h-72 md:w-96 md:h-96 bg-[var(--text-primary)]/10 rounded-full blur-3xl opacity-50 animate-blob"></div>
+      <div class="absolute bottom-0 left-10 w-72 h-72 md:w-96 md:h-96 bg-[var(--text-secondary)]/10 rounded-full blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
+      <div class="absolute top-1/4 right-1/4 w-64 h-64 md:w-80 md:h-80 bg-[var(--accent)]/5 rounded-full blur-3xl opacity-50 animate-blob animation-delay-4000"></div>
+    </div>
+
+    <!-- The updated HTML code section -->
+    <div class="container mx-auto px-4 md:px-6 relative z-10">
+        <div class="flex flex-col items-center text-center space-y-8 max-w-4xl mx-auto">
+        <div class="space-y-6 animate-slide-up">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-gradient-white leading-tight">
+            ייעוץ טכנולוגי ממוקד <span class="text-gradient-primary">לעולם שמתחדש כל יום</span>.
+            </h1>
+            <p class="text-lg sm:text-xl md:text-2xl text-[var(--text-white-subtle)] max-w-3xl mx-auto">
+            ליווי, אסטרטגיה וחשיבה טכנולוגית – ליזמים, בעלי עסקים, ולמי שרוצה להבין את המהפכה הטכנולוגית מבפנים.
+            </p>
+            
+            <!-- Added Infographic -->
+            <div class="w-full mx-auto mt-10 mb-8 animate-slide-up relative" style="animation-delay: 0.15s;">
+            <div class="max-w-sm mx-auto sm:max-w-md md:max-w-xl lg:max-w-2xl xl:max-w-3xl transform hover:scale-[1.02] transition-transform duration-500">
+                <!-- Professional box shadow effect for the infographic -->
+                <div class="absolute inset-0 bg-[var(--text-primary)]/5 rounded-xl transform -translate-x-2 translate-y-2 z-0"></div>
+                <div class="relative z-10 rounded-xl overflow-hidden bg-[#181818]/80 shadow-xl">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" class="w-full h-auto filter drop-shadow-xl">
+                    <!-- Main background -->
+                    <rect width="800" height="800" fill="#1a1a1a" opacity="0" rx="10" ry="10"/>
+                    
+                    <!-- Subtle background glow -->
+                    <defs>
+                    <radialGradient id="bgGlow" cx="0.5" cy="0.5" r="0.65" fx="0.5" fy="0.5">
+                        <stop offset="0%" stop-color="#b2d272" stop-opacity="0.07"/>
+                        <stop offset="100%" stop-color="#1a1a1a" stop-opacity="0"/>
+                    </radialGradient>
+                    </defs>
+                    <circle cx="400" cy="400" r="390" fill="url(#bgGlow)"/>
+                    
+                    <!-- Outer decorative rings -->
+                    <circle cx="400" cy="400" r="350" fill="none" stroke="#b2d272" stroke-width="1" opacity="0.15"/>
+                    <circle cx="400" cy="400" r="370" fill="none" stroke="#c9aed3" stroke-width="1" opacity="0.1"/>
+                    
+                    <!-- Main circle track with gradient -->
+                    <defs>
+                    <linearGradient id="circleTrack" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#b2d272" stop-opacity="0.6"/>
+                        <stop offset="100%" stop-color="#80b34f" stop-opacity="0.6"/>
+                    </linearGradient>
+                    </defs>
+                    <circle cx="400" cy="400" r="230" fill="none" stroke="url(#circleTrack)" stroke-width="2.5" stroke-dasharray="4,6"/>
+                    
+                    <!-- Center area with glowing effect -->
+                    <defs>
+                    <filter id="glow">
+                        <feGaussianBlur stdDeviation="3" result="blur"/>
+                        <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                    </filter>
+                    </defs>
+                    <circle cx="400" cy="400" r="120" fill="#1a1a1a" stroke="#80b34f" stroke-width="1.5" opacity="0.9"/>
+                    <circle cx="400" cy="400" r="110" fill="none" stroke="#80b34f" stroke-width="1" opacity="0.4"/>
+                    
+                    <!-- Center text with subtle glow -->
+                    <text x="400" y="385" text-anchor="middle" fill="#f5f5f5" font-size="32" font-family="Heebo, sans-serif" font-weight="700" filter="url(#glow)">מסע פיתוח</text>
+                    <text x="400" y="425" text-anchor="middle" fill="#b2d272" font-size="22" font-family="Heebo, sans-serif" font-weight="500">מוצר מוצלח</text>
+                    
+                    <!-- Circular progress indicators -->
+                    <path d="M400,170 A230,230 0 0,1 629,400" fill="none" stroke="#80b34f" stroke-width="3" stroke-dasharray="0.5,18" opacity="0.6"/>
+                    <path d="M629,400 A230,230 0 0,1 400,630" fill="none" stroke="#b2d272" stroke-width="3" stroke-dasharray="0.5,18" opacity="0.6"/>
+                    <path d="M400,630 A230,230 0 0,1 171,400" fill="none" stroke="#c9aed3" stroke-width="3" stroke-dasharray="0.5,18" opacity="0.6"/>
+                    <path d="M171,400 A230,230 0 0,1 400,170" fill="none" stroke="#80b34f" stroke-width="3" stroke-dasharray="0.5,18" opacity="0.6"/>
+                    
+                    <!-- Stage 1: Idea (Top) -->
+                    <g transform="translate(400, 140)">
+                    <!-- Icon container with gradient -->
+                    <defs>
+                        <linearGradient id="iconGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#2a2a2a"/>
+                        <stop offset="100%" stop-color="#222222"/>
+                        </linearGradient>
+                    </defs>
+                    <circle cx="0" cy="0" r="42" fill="url(#iconGrad1)" stroke="#b2d272" stroke-width="2"/>
+                    
+                    <!-- Lightbulb icon -->
+                    <path d="M0,-25 Q-12,-25 -15,-10 Q-18,0 -10,10 L-5,15 V20 H5 V15 L10,10 Q18,0 15,-10 Q12,-25 0,-25 Z" 
+                            stroke="#b2d272" stroke-width="1.5" fill="#2a2a2a"/>
+                    <circle cx="0" cy="-10" r="6" stroke="#b2d272" stroke-width="1.5" fill="none"/>
+                    <line x1="0" y1="-22" x2="0" y2="-16" stroke="#b2d272" stroke-width="1.5"/>
+                    
+                    <!-- Text with proper spacing -->
+                    <text x="0" y="60" text-anchor="middle" fill="#f5f5f5" font-size="22" font-family="Heebo, sans-serif" font-weight="600">רעיון</text>
+                    <text x="0" y="85" text-anchor="middle" fill="#cccccc" font-size="14" font-family="Heebo, sans-serif" font-weight="400">חזון הפרויקט</text>
+                    </g>
+                    
+                    <!-- Stage 2: Planning (Top Right) -->
+                    <g transform="translate(600, 250)">
+                    <circle cx="0" cy="0" r="42" fill="url(#iconGrad1)" stroke="#c9aed3" stroke-width="2"/>
+                    
+                    <!-- Document/planning icon -->
+                    <rect x="-15" y="-20" width="30" height="40" rx="2" ry="2" stroke="#c9aed3" stroke-width="1.5" fill="#2a2a2a"/>
+                    <line x1="-8" y1="-10" x2="8" y2="-10" stroke="#c9aed3" stroke-width="1.5"/>
+                    <line x1="-8" y1="0" x2="8" y2="0" stroke="#c9aed3" stroke-width="1.5"/>
+                    <line x1="-8" y1="10" x2="3" y2="10" stroke="#c9aed3" stroke-width="1.5"/>
+                    
+                    <text x="0" y="60" text-anchor="middle" fill="#f5f5f5" font-size="22" font-family="Heebo, sans-serif" font-weight="600">אפיון</text>
+                    <text x="0" y="85" text-anchor="middle" fill="#cccccc" font-size="14" font-family="Heebo, sans-serif" font-weight="400">אסטרטגיה וצרכים</text>
+                    </g>
+                    
+                    <!-- Stage 3: Development (Bottom Right) -->
+                    <g transform="translate(600, 550)">
+                    <circle cx="0" cy="0" r="42" fill="url(#iconGrad1)" stroke="#b2d272" stroke-width="2"/>
+                    
+                    <!-- Code/development icon -->
+                    <path d="M-15,-10 L-25,0 L-15,10" stroke="#b2d272" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15,-10 L25,0 L15,10" stroke="#b2d272" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M0,-15 L-7,15" stroke="#b2d272" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    
+                    <text x="0" y="60" text-anchor="middle" fill="#f5f5f5" font-size="22" font-family="Heebo, sans-serif" font-weight="600">פיתוח</text>
+                    <text x="0" y="85" text-anchor="middle" fill="#cccccc" font-size="14" font-family="Heebo, sans-serif" font-weight="400">בנייה ומימוש</text>
+                    </g>
+                    
+                    <!-- Stage 4: Launch (Bottom Left) -->
+                    <g transform="translate(200, 550)">
+                    <circle cx="0" cy="0" r="42" fill="url(#iconGrad1)" stroke="#c9aed3" stroke-width="2"/>
+                    
+                    <!-- Rocket/launch icon -->
+                    <path d="M-5,-20 C-20,0 -20,15 0,20 C20,15 20,0 5,-20 Z" stroke="#c9aed3" stroke-width="1.5" fill="#2a2a2a"/>
+                    <path d="M-3,-15 C-8,-5 -8,5 0,10 C8,5 8,-5 3,-15 Z" stroke="#c9aed3" stroke-width="1" fill="none"/>
+                    <path d="M-2,12 L-10,20 M2,12 L10,20" stroke="#c9aed3" stroke-width="1.5" fill="none"/>
+                    
+                    <text x="0" y="60" text-anchor="middle" fill="#f5f5f5" font-size="22" font-family="Heebo, sans-serif" font-weight="600">תכנון</text>
+                    <text x="0" y="85" text-anchor="middle" fill="#cccccc" font-size="14" font-family="Heebo, sans-serif" font-weight="400">טכנולוגיה והיקף</text>
+                    </g>
+                    
+                    <!-- Stage 5: Growth (Top Left) -->
+                    <g transform="translate(200, 250)">
+                    <circle cx="0" cy="0" r="42" fill="url(#iconGrad1)" stroke="#80b34f" stroke-width="2"/>
+                    
+                    <!-- Growth chart icon -->
+                    <rect x="-20" y="0" width="40" height="20" stroke="#80b34f" stroke-width="1" fill="none"/>
+                    <line x1="-20" y1="0" x2="-20" y2="-20" stroke="#80b34f" stroke-width="1"/>
+                    <path d="M-15,10 L-5,0 L5,5 L15,-15" stroke="#80b34f" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="15" cy="-15" r="3" fill="#80b34f"/>
+                    
+                    <text x="0" y="60" text-anchor="middle" fill="#f5f5f5" font-size="22" font-family="Heebo, sans-serif" font-weight="600">מימוש</text>
+                    <text x="0" y="85" text-anchor="middle" fill="#cccccc" font-size="14" font-family="Heebo, sans-serif" font-weight="400">השקה והתרחבות</text>
+                    </g>
+                    
+                    <!-- Connecting lines with gradient and animation -->
+                    <defs>
+                    <linearGradient id="lineGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#80b34f" stop-opacity="0.1"/>
+                        <stop offset="100%" stop-color="#80b34f" stop-opacity="0.5"/>
+                    </linearGradient>
+                    <linearGradient id="lineGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#c9aed3" stop-opacity="0.1"/>
+                        <stop offset="100%" stop-color="#c9aed3" stop-opacity="0.5"/>
+                    </linearGradient>
+                    </defs>
+                    
+                    <path d="M400,182 L400,280" stroke="url(#lineGrad1)" stroke-width="1.5"/>
+                    <path d="M558,250 L460,350" stroke="url(#lineGrad2)" stroke-width="1.5"/>
+                    <path d="M558,550 L460,450" stroke="url(#lineGrad1)" stroke-width="1.5"/>
+                    <path d="M242,550 L340,450" stroke="url(#lineGrad2)" stroke-width="1.5"/>
+                    <path d="M242,250 L340,350" stroke="url(#lineGrad1)" stroke-width="1.5"/>
+                    
+                    <!-- No direction indicators -->
+                    
+                    <!-- Subtle background decorative elements -->
+                    <circle cx="650" cy="200" r="80" fill="#b2d272" opacity="0.03"/>
+                    <circle cx="150" cy="600" r="100" fill="#c9aed3" opacity="0.03"/>
+                    <path d="M700,400 Q600,200 500,350 T300,500" stroke="#80b34f" stroke-width="1" fill="none" opacity="0.05"/>
+                </svg>
+                </div>
+            </div>
+            </div>
+        </div>
+    
+        <div class="mt-8 p-6 bg-[var(--light-bg)]/50 backdrop-blur-sm rounded-xl border border-[var(--dark-accent)] max-w-2xl animate-slide-up" style="animation-delay: 0.2s;">
+            <h2 class="text-2xl md:text-3xl font-semibold text-[var(--white)] mb-4">רוצה לפתח מוצר? לשפר את העסק?</h2>
+            <p class="text-base sm:text-lg text-[var(--text-white-subtle)]">
+            להבין איך טכנולוגיה יכולה לעבוד בשבילך? אני כאן כדי לעזור לך לחשוב, לתכנן ולבנות – בצורה מדויקת וחכמה.
+            </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center gap-4 mt-10 animate-slide-up" style="animation-delay: 0.4s;">
+          <a href="#contact" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-[var(--background)] bg-gradient-to-r from-[var(--text-primary)] to-[var(--accent)] hover:brightness-110 shadow-lg hover:shadow-xl transition-all transform hover:scale-105">
+            לצור קשר לייעוץ ראשוני
+            <i class="fas fa-arrow-left mr-2"></i>
+          </a>
+          <a href="#process" class="inline-flex items-center justify-center px-8 py-3 border border-[var(--dark-accent)] text-[var(--text-white-subtle)] text-base font-medium rounded-full bg-transparent hover:bg-[var(--light-bg)]/50 transition-colors">
+            דברו איתי בווטסאפ
+            <i class="fab fa-whatsapp mr-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about" class="py-16 sm:py-20 bg-gradient-to-b from-[#222] to-[var(--background)]">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center max-w-5xl mx-auto animate-on-scroll">
+        <div class="md:col-span-1 flex justify-center">
+          <div class="profile-image-placeholder w-48 h-48 sm:w-56 sm:h-56">
+            <!-- !החלף בתמונה אמיתית שלך! -->
+            <img src="images/my-image.PNG" alt="נדב נוה">
+            <!-- <i class="fas fa-user text-6xl text-[var(--text-white-subtle)] opacity-50"></i> -->
+          </div>
+        </div>
+        <div class="md:col-span-2 text-center md:text-right">
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6 text-[var(--white)]">
+            מי אני ולמה <span class="text-gradient-primary">כדאי להקשיב לי</span>?
+          </h2>
+          <p class="text-lg text-[var(--text-white-subtle)] mb-4">
+            אני <span class="font-semibold text-[var(--text-primary)]">נדב נוה</span>, בעל תואר במדעי המחשב בטכניון, יזם טכנולוגי, בונה ומלווה מוצרים טכנולוגיים כבר שנים.
+          </p>
+          <p class="text-lg text-[var(--text-white-subtle)]">
+            במהלך הקריירה שלי פיתחתי מוצרים מאפס, ליוויתי יזמים וחברות בכל שלבי הדרך, ייעצתי לעסקים איך לשלב טכנולוגיה חכמה כדי לחסוך זמן, כוח אדם וכסף, והשתמשתי בכלי AI כדי לקצר תהליכים ולבנות מערכות בצורה מדויקת.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mentoring Process Section -->
+  <section id="process" class="py-16 sm:py-20 bg-gradient-to-b from-[var(--background)] to-[#222]">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="text-center mb-12 sm:mb-16 animate-on-scroll">
+        <div class="inline-block mb-4">
+          <div class="px-4 py-2 bg-[var(--light-bg)] rounded-full text-sm font-medium text-[var(--text-primary)] border border-[var(--accent)]/50">
+            איך עובד תהליך הליווי?
+          </div>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-[var(--white)]">
+          4 שלבים פשוטים – שמובילים אותך <span class="text-gradient-primary">מקונספט ברור לפעולה נכונה</span>
+        </h2>
+        <p class="text-base sm:text-lg text-[var(--text-white-subtle)] max-w-2xl mx-auto">
+          במהלך תהליך הליווי אני עוזר לך להתמקד במה שחשוב באמת בכל שלב:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto animate-on-scroll">
+        <!-- Step 1 -->
+        <div class="bg-[var(--light-bg)] p-6 rounded-xl border border-[var(--dark-accent)] flex items-start space-x-4 rtl:space-x-reverse hover:border-[var(--text-primary)]/50 transition-colors duration-300">
+          <div class="w-12 h-12 bg-[var(--dark-accent)] rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+            <i class="fas fa-lightbulb text-xl text-[var(--text-primary)]"></i>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-[var(--white)] mb-2">1. אפיון חכם של הרעיון</h3>
+            <ul class="space-y-2 text-sm text-[var(--text-white-subtle)] list-inside">
+              <li class="flex items-start"><i class="fas fa-check text-[var(--text-primary)]/70 ml-2 mt-1 flex-shrink-0"></i> הגדרת מוצר מדויקת</li>
+              <li class="flex items-start"><i class="fas fa-check text-[var(--text-primary)]/70 ml-2 mt-1 flex-shrink-0"></i> מיקוד קהל יעד</li>
+              <li class="flex items-start"><i class="fas fa-check text-[var(--text-primary)]/70 ml-2 mt-1 flex-shrink-0"></i> חידוד MVP ברור</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="bg-[var(--light-bg)] p-6 rounded-xl border border-[var(--dark-accent)] flex items-start space-x-4 rtl:space-x-reverse hover:border-[var(--text-secondary)]/50 transition-colors duration-300">
+          <div class="w-12 h-12 bg-[var(--dark-accent)] rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+            <i class="fas fa-drafting-compass text-xl text-[var(--text-secondary)]"></i>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-[var(--white)] mb-2">2. תכנון נכון של הפיתוח</h3>
+            <ul class="space-y-2 text-sm text-[var(--text-white-subtle)] list-inside">
+              <li class="flex items-start"><i class="fas fa-check text-[var(--text-secondary)]/70 ml-2 mt-1 flex-shrink-0"></i> בחירת טכנולוגיות מתאימות</li>
+              <li class="flex items-start"><i class="fas fa-check text-[var(--text-secondary)]/70 ml-2 mt-1 flex-shrink-0"></i> חיסכון בעלויות ובזמן</li>
+              <li class="flex items-start"><i class="fas fa-check text-[var(--text-secondary)]/70 ml-2 mt-1 flex-shrink-0"></i> הבנת התהליך מקצה לקצה</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="bg-[var(--light-bg)] p-6 rounded-xl border border-[var(--dark-accent)] flex items-start space-x-4 rtl:space-x-reverse hover:border-[var(--text-primary)]/50 transition-colors duration-300">
+          <div class="w-12 h-12 bg-[var(--dark-accent)] rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+            <i class="fas fa-users-cog text-xl text-[var(--text-primary)]"></i>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-[var(--white)] mb-2">3. בניית צוות / שירותים חיצוניים</h3>
+            <ul class="space-y-2 text-sm text-[var(--text-white-subtle)] list-inside">
+              <li class="flex items-start"><i class="fas fa-check text-[var(--text-primary)]/70 ml-2 mt-1 flex-shrink-0"></i> בחירת אנשי מקצוע נכונים</li>
+              <li class="flex items-start"><i class="fas fa-check text-[var(--text-primary)]/70 ml-2 mt-1 flex-shrink-0"></i> שילוב עיצוב, טכנולוגיה ו-PM</li>
+              <li class="flex items-start"><i class="fas fa-check text-[var(--text-primary)]/70 ml-2 mt-1 flex-shrink-0"></i> תקשורת ברורה עם מתכנתים גם בלי לדעת קוד</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="bg-[var(--light-bg)] p-6 rounded-xl border border-[var(--dark-accent)] flex items-start space-x-4 rtl:space-x-reverse hover:border-[var(--text-secondary)]/50 transition-colors duration-300">
+          <div class="w-12 h-12 bg-[var(--dark-accent)] rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+            <i class="fas fa-robot text-xl text-[var(--text-secondary)]"></i>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-[var(--white)] mb-2">4. שימוש יעיל בכלי AI</h3>
+            <ul class="space-y-2 text-sm text-[var(--text-white-subtle)] list-inside">
+              <li class="flex items-start"><i class="fas fa-check text-[var(--text-secondary)]/70 ml-2 mt-1 flex-shrink-0"></i> שילוב GPT, Copilot, Firebase</li>
+              <li class="flex items-start"><i class="fas fa-check text-[var(--text-secondary)]/70 ml-2 mt-1 flex-shrink-0"></i> דיבאגינג בעזרת AI</li>
+              <li class="flex items-start"><i class="fas fa-check text-[var(--text-secondary)]/70 ml-2 mt-1 flex-shrink-0"></i> כלים לחיסכון אוטומטי במשימות חוזרות</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="py-16 sm:py-20 bg-gradient-to-b from-[#222] to-[var(--background)]">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="text-center mb-12 sm:mb-16 animate-on-scroll">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-[var(--white)]">
+          סוגי השירותים <span class="text-gradient-primary">שאנו מציעים</span>
+        </h2>
+        <p class="text-base sm:text-lg text-[var(--text-white-subtle)] max-w-2xl mx-auto">
+          בחר את המסלול שמתאים לך – המחיר מותאם אישית לפי הצורך:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- Package 1: Single Session -->
+        <div class="bg-[var(--light-bg)] rounded-xl overflow-hidden shadow-lg border border-[var(--dark-accent)] hover:shadow-[0_0_30px_rgba(178,210,114,0.1)] transition-all duration-300 animate-on-scroll transform hover:-translate-y-1 sm:hover:-translate-y-2 flex flex-col">
+          <div class="bg-gradient-to-r from-[var(--text-primary)]/50 to-[var(--accent)]/50 h-2"></div>
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-2xl font-bold text-center text-[var(--white)] mb-2">פגישת ייעוץ בודדת</h3>
+            <p class="text-center text-[var(--text-white-subtle)] text-sm mb-6">שיחה ממוקדת</p>
+
+            <div class="text-center mb-8">
+              <div class="text-4xl sm:text-5xl font-bold text-[var(--text-primary)]">מותאם אישית</div>
+              <div class="text-[var(--text-white-subtle)] text-sm mt-2">לפי צורך</div>
+            </div>
+
+            <ul class="space-y-3 mb-8 text-sm text-[var(--text-white-subtle)] flex-grow">
+              <li class="flex items-start">
+                <i class="fas fa-check text-[var(--text-primary)] mt-1 ml-3 flex-shrink-0"></i>
+                <span>שיחה ממוקדת</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-[var(--text-primary)] mt-1 ml-3 flex-shrink-0"></i>
+                <span>פתרון לבעיה או רעיון אחד</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-[var(--text-primary)] mt-1 ml-3 flex-shrink-0"></i>
+                <span>תוכנית פעולה להמשך</span>
+              </li>
+            </ul>
+
+            <div class="text-center mt-auto">
+              <a href="#contact" class="inline-flex items-center justify-center w-full px-6 py-3 border border-[var(--text-primary)] text-base font-medium rounded-full text-[var(--text-primary)] hover:bg-[var(--text-primary)] hover:text-[var(--background)] transition-colors">
+                קבע פגישה
+                <i class="fas fa-arrow-left mr-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 2: Personal Plan (Featured) -->
+        <div class="bg-[var(--light-bg)] rounded-xl overflow-hidden shadow-2xl border-2 border-[var(--text-primary)] relative animate-on-scroll transform hover:-translate-y-1 sm:hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(178,210,114,0.2)] transition-all duration-300 flex flex-col" style="animation-delay: 0.1s;">
+           <div class="absolute top-0 right-0 left-0 z-10">
+            <div class="bg-[var(--text-primary)] text-center text-[var(--background)] font-bold py-1 text-sm">
+              המסלול המומלץ
+            </div>
+          </div>
+          <div class="bg-gradient-to-r from-[var(--text-primary)] to-[var(--accent)] h-2 mt-[26px]"></div>
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-2xl font-bold text-center text-[var(--white)] mb-2">תוכנית ליווי אישית</h3>
+            <p class="text-center text-[var(--text-white-subtle)] text-sm mb-6">ליווי במספר מפגשים</p>
+
+            <div class="text-center mb-8">
+              <div class="text-4xl sm:text-5xl font-bold text-[var(--text-primary)]">מותאם אישית</div>
+              <div class="text-[var(--text-white-subtle)] text-sm mt-2">תלוי בהיקף הפרויקט</div>
+            </div>
+
+            <ul class="space-y-3 mb-8 text-sm text-[var(--text-white-subtle)] flex-grow">
+              <li class="flex items-start">
+                <i class="fas fa-check text-[var(--text-primary)] mt-1 ml-3 flex-shrink-0"></i>
+                <span>תכנון ופיצוח מוצר</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-[var(--text-primary)] mt-1 ml-3 flex-shrink-0"></i>
+                <span>גיבוש MVP ובחירת טכנולוגיה</span>
+              </li>
+               <li class="flex items-start">
+                <i class="fas fa-check text-[var(--text-primary)] mt-1 ml-3 flex-shrink-0"></i>
+                <span>ניהול ותמיכה לאורך הדרך</span>
+               </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-[var(--text-primary)] mt-1 ml-3 flex-shrink-0"></i>
+                <span>חיבור לאנשי מקצוע במידת הצורך</span>
+              </li>
+            </ul>
+
+            <div class="text-center mt-auto">
+              <a href="#contact" class="inline-flex items-center justify-center w-full px-6 py-3 border border-transparent text-base font-medium rounded-full text-[var(--background)] bg-gradient-to-r from-[var(--text-primary)] to-[var(--accent)] hover:brightness-110 shadow-md hover:shadow-lg transition-all">
+                התחל תהליך ליווי
+                <i class="fas fa-arrow-left mr-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 3: In-Depth -->
+        <div class="bg-[var(--light-bg)] rounded-xl overflow-hidden shadow-lg border border-[var(--dark-accent)] hover:shadow-[0_0_30px_rgba(201,174,211,0.1)] transition-all duration-300 animate-on-scroll transform hover:-translate-y-1 sm:hover:-translate-y-2 flex flex-col" style="animation-delay: 0.2s;">
+          <div class="bg-gradient-to-r from-[var(--text-secondary)]/50 to-[var(--accent)]/50 h-2"></div>
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-2xl font-bold text-center text-[var(--white)] mb-2">ליווי עומק אסטרטגי</h3>
+            <p class="text-center text-[var(--text-white-subtle)] text-sm mb-6">ליזמים, חברות וסטארטאפים</p>
+
+            <div class="text-center mb-8">
+              <div class="text-4xl sm:text-5xl font-bold text-[var(--text-secondary)]">מותאם אישית</div>
+              <div class="text-[var(--text-white-subtle)] text-sm mt-2">נקבע לאחר שיחת היכרות</div>
+            </div>
+
+            <ul class="space-y-3 mb-8 text-sm text-[var(--text-white-subtle)] flex-grow">
+               <li class="flex items-start">
+                <i class="fas fa-check text-[var(--text-secondary)] mt-1 ml-3 flex-shrink-0"></i>
+                <span>תוכנית אסטרטגית מלאה</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-[var(--text-secondary)] mt-1 ml-3 flex-shrink-0"></i>
+                <span>חיבור לצוותים, כלים ואנשי מקצוע</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-[var(--text-secondary)] mt-1 ml-3 flex-shrink-0"></i>
+                <span>שילוב תשתיות, BI ו-AI</span>
+              </li>
+               <li class="flex items-start">
+                <i class="fas fa-check text-[var(--text-secondary)] mt-1 ml-3 flex-shrink-0"></i>
+                <span>הכנה לפיתוח והשקה</span>
+              </li>
+            </ul>
+
+            <div class="text-center mt-auto">
+              <a href="#contact" class="inline-flex items-center justify-center w-full px-6 py-3 border border-[var(--text-secondary)] text-base font-medium rounded-full text-[var(--text-secondary)] hover:bg-[var(--text-secondary)] hover:text-[var(--background)] transition-colors">
+                דבר איתנו לפרטים
+                <i class="fas fa-arrow-left mr-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who Is It For Section -->
+  <section id="for-who" class="py-16 sm:py-20 bg-gradient-to-b from-[var(--background)] to-[#222]">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="text-center mb-12 sm:mb-16 animate-on-scroll">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-[var(--white)]">
+          למי <span class="text-gradient-primary">השירות שלי מתאים</span>?
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto">
+        <!-- Card 1 -->
+        <div class="bg-[var(--light-bg)] p-6 rounded-xl shadow-md border border-[var(--dark-accent)] text-center animate-on-scroll hover:border-[var(--text-primary)]/30 transition-colors duration-300">
+          <div class="w-16 h-16 bg-[var(--dark-accent)] rounded-full flex items-center justify-center mb-4 mx-auto">
+            <i class="fas fa-lightbulb text-2xl text-[var(--text-primary)]"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-[var(--white)] mb-2">יזמים עם רעיון למוצר טכנולוגי</h3>
+          <p class="text-[var(--text-white-subtle)] text-sm">צריכים עזרה בגיבוש אסטרטגיה, MVP, תכנון חכם וגישה לפיתוח אפקטיבי.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-[var(--light-bg)] p-6 rounded-xl shadow-md border border-[var(--dark-accent)] text-center animate-on-scroll hover:border-[var(--text-secondary)]/30 transition-colors duration-300" style="animation-delay: 0.1s;">
+           <div class="w-16 h-16 bg-[var(--dark-accent)] rounded-full flex items-center justify-center mb-4 mx-auto">
+            <i class="fas fa-store text-2xl text-[var(--text-secondary)]"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-[var(--white)] mb-2">בעלי עסקים שרוצים לייעל תהליכים</h3>
+          <p class="text-[var(--text-white-subtle)] text-sm">מעוניינים להכניס טכנולוגיה חכמה, אוטומציות, או להפחית עלויות תפעול.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-[var(--light-bg)] p-6 rounded-xl shadow-md border border-[var(--dark-accent)] text-center animate-on-scroll hover:border-[var(--text-primary)]/30 transition-colors duration-300" style="animation-delay: 0.2s;">
+           <div class="w-16 h-16 bg-[var(--dark-accent)] rounded-full flex items-center justify-center mb-4 mx-auto">
+            <i class="fas fa-user-graduate text-2xl text-[var(--text-primary)]"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-[var(--white)] mb-2">אנשים פרטיים שרוצים ללמוד</h3>
+          <p class="text-[var(--text-white-subtle)] text-sm">רוצים להבין איך להשתמש בטכנולוגיה ו-AI בצורה פרקטית ומדויקת.</p>
+        </div>
+
+        <!-- Card 4 -->
+         <div class="bg-[var(--light-bg)] p-6 rounded-xl shadow-md border border-[var(--dark-accent)] text-center animate-on-scroll hover:border-[var(--text-secondary)]/30 transition-colors duration-300" style="animation-delay: 0.3s;">
+           <div class="w-16 h-16 bg-[var(--dark-accent)] rounded-full flex items-center justify-center mb-4 mx-auto">
+            <i class="fas fa-users text-2xl text-[var(--text-secondary)]"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-[var(--white)] mb-2">צוותים וארגונים</h3>
+          <p class="text-[var(--text-white-subtle)] text-sm">מחפשים סדנאות מעשיות, ייעוץ קבוצתי או חשיפה טכנולוגית בגובה העיניים.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+   <!-- Testimonials Section -->
+  <section id="testimonials" class="py-16 sm:py-20 bg-gradient-to-b from-[#222] to-[var(--background)]">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="text-center mb-12 sm:mb-16 animate-on-scroll">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-[var(--white)]">
+         מה <span class="text-gradient-primary">אנשים אומרים</span>:
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- Testimonial 1 -->
+        <div class="bg-[var(--light-bg)] rounded-xl p-6 shadow-lg border border-[var(--dark-accent)] animate-on-scroll flex flex-col">
+          <div class="testimonial-quote text-[var(--text-white-subtle)] text-base italic mb-6 flex-grow">
+            "יצאתי מהפגישה עם כיוון ברור. זה לא סתם ייעוץ – זו הייתה תוכנית פעולה."
+          </div>
+          <div class="flex items-center mt-auto">
+            <div class="w-10 h-10 rounded-full bg-[var(--dark-accent)] flex items-center justify-center ml-3 flex-shrink-0 border border-[var(--text-primary)]/30">
+              <i class="fas fa-user text-[var(--text-primary)]"></i>
+            </div>
+            <div>
+              <div class="font-medium text-[var(--white)]">אורן</div>
+              <div class="text-sm text-[var(--text-primary)]/80">יזם בתחילת הדרך</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="bg-[var(--light-bg)] rounded-xl p-6 shadow-lg border border-[var(--dark-accent)] animate-on-scroll flex flex-col" style="animation-delay: 0.1s;">
+           <div class="testimonial-quote text-[var(--text-white-subtle)] text-base italic mb-6 flex-grow">
+            "רק בזכות השיחות שלנו הבנתי איפה לייעל ואיפה לא לבזבז."
+          </div>
+          <div class="flex items-center mt-auto">
+            <div class="w-10 h-10 rounded-full bg-[var(--dark-accent)] flex items-center justify-center ml-3 flex-shrink-0 border border-[var(--text-secondary)]/30">
+              <i class="fas fa-user text-[var(--text-secondary)]"></i>
+            </div>
+            <div>
+              <div class="font-medium text-[var(--white)]">נעמה</div>
+              <div class="text-sm text-[var(--text-secondary)]/80">בעלת עסק קטן</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="bg-[var(--light-bg)] rounded-xl p-6 shadow-lg border border-[var(--dark-accent)] animate-on-scroll flex flex-col" style="animation-delay: 0.2s;">
+           <div class="testimonial-quote text-[var(--text-white-subtle)] text-base italic mb-6 flex-grow">
+            "כל מי שרוצה להבין טכנולוגיה בצורה לא מאיימת – חייב שיחה עם [שמך]"
+          </div>
+          <div class="flex items-center mt-auto">
+            <div class="w-10 h-10 rounded-full bg-[var(--dark-accent)] flex items-center justify-center ml-3 flex-shrink-0 border border-[var(--accent)]/30">
+              <i class="fas fa-user text-[var(--accent)]"></i>
+            </div>
+            <div>
+              <div class="font-medium text-[var(--white)]">עידו</div>
+              <div class="text-sm text-[var(--accent)]/80">מתעניין בלימוד עצמי</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section id="contact" class="py-16 sm:py-20 bg-gradient-to-b from-[var(--background)] to-[#222] border-t border-[var(--dark-accent)]">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="max-w-3xl mx-auto text-center animate-on-scroll">
+         <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6 text-[var(--white)]">
+          דברו איתי – <span class="text-gradient-primary">ובואו נתכנן את הצעד הבא שלכם</span>.
+        </h2>
+        <p class="text-lg text-[var(--text-white-subtle)] mb-8">
+          אין התחייבות. רק שיחה שתפתח לך כיוון.
+        </p>
+
+        <a href="#" class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-medium rounded-full text-[var(--background)] bg-gradient-to-r from-[var(--text-primary)] to-[var(--accent)] hover:brightness-110 shadow-lg hover:shadow-xl transition-all transform hover:scale-105">
+          לצור קשר לייעוץ ראשוני
+          <i class="fas fa-arrow-left mr-3"></i>
+        </a>
+
+        <div class="mt-6 text-[var(--text-white-subtle)] text-sm">
+          אפשר לפנות גם דרך וואטסאפ, מייל או טופס. מה שנוח לך.
+        </div>
+      </div>
+    </div>
+  </section>
+
+   <!-- Footer -->
+   <footer class="py-12 bg-[var(--background)] border-t border-[var(--dark-accent)]">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="max-w-5xl mx-auto">
+        <div class="flex flex-col items-center text-center">
+          <div class="mb-6">
+            <h2 class="text-2xl font-bold text-[var(--white)]">מתוכן לתוכנה</h2>
+            <p class="text-sm text-[var(--text-white-subtle)]">פיתוח. ויזואל. בינה מלאכותית.</p>
+          </div>
+
+          <div class="mb-8">
+            <div class="flex items-center gap-6">
+              <a href="https://www.facebook.com/groups/1155534872864774" class="text-[var(--text-white-subtle)] hover:text-[var(--text-primary)] transition-colors">
+                <i class="fab fa-facebook-f text-xl"></i>
+              </a>
+              <a href="https://www.instagram.com/software.creators.ai" class="text-[var(--text-white-subtle)] hover:text-[var(--text-primary)] transition-colors">
+                <i class="fab fa-instagram text-xl"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/nadav-naveh/" class="text-[var(--text-white-subtle)] hover:text-[var(--text-primary)] transition-colors">
+                <i class="fab fa-linkedin-in text-xl"></i>
+              </a>
+              <a href="https://www.youtube.com/@softwarecreatorsai" class="text-[var(--text-white-subtle)] hover:text-[var(--text-primary)] transition-colors">
+                <i class="fab fa-youtube text-xl"></i>
+              </a>
+              <a href="https://www.tiktok.com/@software.creators.ai" class="text-[var(--text-white-subtle)] hover:text-[var(--text-primary)] transition-colors">
+                <i class="fab fa-tiktok text-xl"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap justify-center gap-4 mb-6">
+            <a href="#" class="text-sm text-[var(--text-white-subtle)] hover:text-[var(--text-primary)]">קורסי AI לפיתוח תוכנה</a>
+            <span class="text-[var(--dark-accent)]">|</span>
+            <a href="#" class="text-sm text-[var(--text-white-subtle)] hover:text-[var(--text-primary)]">קורס מידול תמונה עם AI</a>
+            <span class="text-[var(--dark-accent)]">|</span>
+            <a href="#" class="text-sm text-[var(--text-white-subtle)] hover:text-[var(--text-primary)]">שירותי ייעוץ וליווי</a>
+          </div>
+
+          <div class="text-xs text-[var(--text-white-subtle)]/60">
+            © מתוכן לתוכנה | כל הזכויות שמורות | <span id="copyright-year">2025</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[var(--accent)] text-[var(--background)] shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-[var(--text-primary)] transform hover:scale-110 z-50">
+    <i class="fas fa-arrow-up text-sm sm:text-base"></i>
+  </button>
+
+  <script>
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      // Smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return; // Avoid breaking empty links
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            e.preventDefault();
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+      // Intersection Observer for scroll animations
+      const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -10% 0px' };
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        el.style.opacity = 0;
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.7s ease-out, transform 0.7s ease-out';
+        observer.observe(el);
+      });
+
+      // Back to top button
+      const backToTopBtn = document.getElementById('back-to-top');
+      if (backToTopBtn) {
+        const scrollHandler = () => {
+          backToTopBtn.classList.toggle('opacity-100', window.scrollY > 300);
+          backToTopBtn.classList.toggle('visible', window.scrollY > 300);
+          backToTopBtn.classList.toggle('opacity-0', window.scrollY <= 300);
+          backToTopBtn.classList.toggle('invisible', window.scrollY <= 300);
+        };
+        window.addEventListener('scroll', scrollHandler);
+        scrollHandler(); // Initial check
+        backToTopBtn.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      // Update copyright year dynamically
+      const yearElement = document.getElementById('copyright-year');
+      if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+      }
+
+    }); // End DOMContentLoaded
+  </script>
+</body>
+</html>
